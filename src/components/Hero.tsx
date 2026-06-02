@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { projects } from "@/data/projects";
 
 export default function Hero() {
@@ -12,17 +13,18 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="bg-grid relative flex min-h-screen items-center overflow-hidden px-6 pt-24"
+      className="bg-grid relative flex min-h-screen items-center overflow-hidden px-6 pt-28 pb-16"
     >
-      <div className="mx-auto max-w-6xl">
-        <div className="max-w-3xl">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.25fr_1fr]">
+        {/* Text column */}
+        <div className="order-2 lg:order-1">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted animate-fadeUp">
             <span className="h-2 w-2 animate-pulse rounded-full bg-accent2" />
             Available for automation & full-stack roles
           </p>
 
           <h1
-            className="mb-6 text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl animate-fadeUp"
+            className="mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl animate-fadeUp"
             style={{ animationDelay: "0.05s", opacity: 0 }}
           >
             Hi, I&apos;m Jemuel.
@@ -70,6 +72,24 @@ export default function Hero() {
                 <div className="mt-1 text-sm text-muted">{s.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Photo column */}
+        <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+          <div className="relative animate-fadeUp" style={{ opacity: 0 }}>
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-accent/30 to-accent2/30 blur-2xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl shadow-accent/10">
+              <Image
+                src="/jem.jpg"
+                alt="Jemuel Sususco"
+                width={1558}
+                height={1729}
+                priority
+                sizes="(max-width: 1024px) 80vw, 380px"
+                className="h-auto w-[280px] object-cover sm:w-[340px] lg:w-[380px]"
+              />
+            </div>
           </div>
         </div>
       </div>
