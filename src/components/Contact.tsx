@@ -30,8 +30,8 @@ export default function Contact() {
           Let&apos;s build something automated.
         </h2>
         <p className="mb-10 max-w-2xl text-muted">
-          Open to automation engineering, full-stack development and AI systems
-          roles. The fastest way to reach me is email — I usually reply within a
+          Open to automation engineering, AI development and systems
+          integration roles. The fastest way to reach me is email — I usually reply within a
           day.
         </p>
 

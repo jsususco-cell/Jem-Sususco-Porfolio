@@ -1,6 +1,6 @@
 # Jemuel Sususco — Portfolio
 
-Personal portfolio of **Jemuel Sususco**, AI-powered automation specialist and full-stack developer. Showcases 16+ production n8n workflows (AI agents, document automation, data scraping, data pipelines, ops & finance) and an embedded, downloadable resume.
+Personal portfolio of **Jemuel Sususco**, AI-powered automation specialist and AI development engineer. Showcases 16+ production n8n workflows (AI agents, document automation, data scraping, data pipelines, ops & finance) and an embedded, downloadable resume.
 
 Built with **Next.js 14 (App Router)**, **TypeScript**, and **Tailwind CSS**. Deployed on **Vercel**.
 

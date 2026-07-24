@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="order-2 lg:order-1">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted animate-fadeUp">
             <span className="h-2 w-2 animate-pulse rounded-full bg-accent2" />
-            Available for automation & full-stack roles
+            Available for automation & AI development roles
           </p>
 
           <h1
@@ -37,9 +37,9 @@ export default function Hero() {
             className="mb-8 max-w-2xl text-lg text-muted animate-fadeUp"
             style={{ animationDelay: "0.1s", opacity: 0 }}
           >
-            AI-powered automation specialist and full-stack developer. I design
+            AI-powered automation specialist and AI development engineer. I design
             end-to-end workflow systems with n8n, build multi-agent AI tools,
-            and ship full-stack apps to GitHub, Vercel and Fly.io.
+            and ship AI-driven apps to GitHub, Vercel and Fly.io.
           </p>
 
           <div

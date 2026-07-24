@@ -10,7 +10,7 @@ const experience = [
     ],
   },
   {
-    role: "Full-Stack Developer (Claude Code)",
+    role: "AI Development Engineer (Claude Code)",
     company: "Independent Projects",
     period: "2024 — Present",
     points: [
@@ -52,11 +52,11 @@ export default function About() {
               Automation that&apos;s reliable, not just clever.
             </h2>
             <p className="mb-4 text-muted">
-              I&apos;m an AI-powered automation specialist and full-stack
-              developer with 3+ years designing end-to-end workflow systems and
+              I&apos;m an AI-powered automation specialist and AI development
+              engineer with 3+ years designing end-to-end workflow systems and
               web applications. I work fluently across no-code/low-code
-              platforms — n8n, GoHighLevel, Zapier, Make — and modern full-stack
-              development.
+              platforms — n8n, GoHighLevel, Zapier, Make — and modern AI
+              development tools.
             </p>
             <p className="mb-4 text-muted">
               My background in IT support and systems administration means I

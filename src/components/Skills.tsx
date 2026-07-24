@@ -15,7 +15,7 @@ const groups = [
     ],
   },
   {
-    title: "Full-Stack Dev",
+    title: "AI Development Tools",
     skills: [
       "React",
       "Next.js",
