@@ -1,5 +1,7 @@
 export type Category =
   | "AI Agents"
+  | "Business Systems"
+  | "Web Apps"
   | "Document Automation"
   | "Data Scraping"
   | "Ops & Finance"
@@ -12,7 +14,10 @@ export interface Project {
   description: string;
   highlights: string[];
   integrations: string[];
-  nodes: number;
+  /** n8n node count — set for workflow projects. */
+  nodes?: number;
+  /** Short badge for non-workflow projects (apps, systems, scripts), e.g. "Next.js + Zoho". */
+  metric?: string;
   featured?: boolean;
 }
 
@@ -245,10 +250,167 @@ export const projects: Project[] = [
     integrations: ["Quickbase", "Google Sheets", "Google Drive", "Schedule"],
     nodes: 57,
   },
+  {
+    title: "RFP & BD Platform",
+    category: "Business Systems",
+    tagline: "End-to-end capture platform for government contracting",
+    description:
+      "A full business-development platform that pulls federal opportunities from SAM.gov and Grants.gov, runs AI solicitation and compliance analysis, scores bid/no-bid decisions, spawns proposal tasks with deadline tracking, and manages award handoff and win/loss analytics — surfaced through a suite of live operational dashboards.",
+    highlights: [
+      "Automated opportunity intake from SAM.gov and Grants.gov",
+      "AI-driven solicitation analysis and compliance-matrix extraction",
+      "Bid/no-bid gating, proposal task tracking and win/loss analytics",
+    ],
+    integrations: ["Quickbase", "n8n", "OpenAI", "SAM.gov", "Grants.gov"],
+    metric: "Quickbase + n8n + AI",
+    featured: true,
+  },
+  {
+    title: "Vendor Access Portal",
+    category: "Business Systems",
+    tagline: "Login-free portal for subcontractors and vendors",
+    description:
+      "A tokenized portal that lets external subcontractors view their assigned jobs, schedule, photos, receipts and documents without a Quickbase account. Staff control exactly which categories of data each vendor can see from an admin page, while vendors reach their data through a unique link — keeping all credentials server-side.",
+    highlights: [
+      "Per-vendor, category-level access control",
+      "Tokenized links — no vendor accounts or logins required",
+      "Credentials kept server-side behind a Vercel API",
+    ],
+    integrations: ["Quickbase", "Next.js", "Vercel"],
+    metric: "Quickbase + Vercel",
+  },
+  {
+    title: "Credit Card & Expense System",
+    category: "Business Systems",
+    tagline: "Unified expense capture synced to QuickBooks Online",
+    description:
+      "A Quickbase-based expense platform with a mobile capture app and a purchase-entry form that syncs transactions, vendors, customers and chart-of-accounts with QuickBooks Online through n8n — giving finance a single reconciled picture of company spend, with an unreported-spend review queue and open AP/AR dashboards.",
+    highlights: [
+      "Mobile PWA for field expense capture with an offline queue",
+      "Two-way sync between Quickbase and QuickBooks Online via n8n",
+      "Unreported-spend queue and open AP/AR dashboards",
+    ],
+    integrations: ["Quickbase", "QuickBooks Online", "n8n", "PWA"],
+    metric: "Quickbase + QBO",
+  },
+  {
+    title: "Subcontractor Award System",
+    category: "Business Systems",
+    tagline: "One-screen subcontractor PO award and payment breakdown",
+    description:
+      "A Quickbase Code Page that lets project staff award a purchase order to an approved subcontractor from a single screen — searching award-eligible subs, building a line-item award breakdown with an auto-calculated contract total, setting PO details, and auto-generating the associated bills. It can preview and send a branded award-letter PDF that Quickbase emails to the subcontractor automatically.",
+    highlights: [
+      "Searchable award-eligible subcontractor picker",
+      "Line-item award breakdown with auto-calculated contract total",
+      "Auto-creates bills and sends a branded award-letter PDF on award",
+    ],
+    integrations: ["Quickbase", "JavaScript", "Document Templates"],
+    metric: "Quickbase Code Page",
+  },
+  {
+    title: "Financial Reconciliation System",
+    category: "Ops & Finance",
+    tagline: "AI-assisted bank and invoice reconciliation",
+    description:
+      "A reconciliation system that ingests bank transactions and vendor invoices into Quickbase, uses Google Gemini to extract vendor, invoice number, date and amount from uploaded PDFs for human review, then auto-matches exact and mismatched amounts and flags duplicates, stale-unmatched items and past-due exceptions.",
+    highlights: [
+      "Gemini-powered PDF field extraction with review-before-save",
+      "Automatic exact and mismatched amount matching",
+      "Duplicate, stale and past-due exception flagging",
+    ],
+    integrations: ["Quickbase", "Google Gemini", "Next.js", "Vercel"],
+    metric: "Quickbase + AI",
+  },
+  {
+    title: "QuickBooks Charge Entry",
+    category: "Ops & Finance",
+    tagline: "Auto-enters flagged charges into QuickBooks Desktop",
+    description:
+      "A Python automation that reads a Google Sheet of credit-card charges flagged for entry, validates that each card and vendor exist in QuickBooks Desktop, and enters them as credit-card charges through the QBXML API — highlighting any rows that fail validation for manual review.",
+    highlights: [
+      "QBXML integration with QuickBooks Desktop",
+      "Card and vendor validation before entry",
+      "Failed rows highlighted in-sheet for review",
+    ],
+    integrations: ["Python", "QuickBooks Desktop", "Google Sheets"],
+    metric: "Python + QBXML",
+  },
+  {
+    title: "Flexible Holiday Portal",
+    category: "Web Apps",
+    tagline: "Employee holiday elections synced to Zoho People",
+    description:
+      "An employee-facing app for filing Philippine holiday actions — take the day off, work for premium pay, or work to earn a compensatory day off. Employees sign in with their Zoho email, submissions log to Google Sheets, and a daily job posts compensatory-off credits to Zoho People only after confirming the employee worked a full day via attendance.",
+    highlights: [
+      "Zoho People OAuth sign-in and leave-balance posting",
+      "Attendance-verified compensatory-off crediting",
+      "Daily automated reconciliation via scheduled cron",
+    ],
+    integrations: ["Next.js", "Zoho People", "Google Sheets", "Vercel"],
+    metric: "Next.js + Zoho",
+  },
+  {
+    title: "CC Forms Hub",
+    category: "Web Apps",
+    tagline: "Mobile-first credit-card transaction filing for field crews",
+    description:
+      "A phone-friendly form hub that lets field crews quickly file credit-card transactions across multiple company cards, each routed to its own n8n webhook, with a submission history directory and a live presence indicator for concurrent-user awareness.",
+    highlights: [
+      "Mobile-optimized multi-card submission flow",
+      "Per-card routing to dedicated n8n webhooks",
+      "Submission history and live presence indicator",
+    ],
+    integrations: ["Next.js", "React", "n8n", "Supabase"],
+    metric: "Next.js + n8n",
+  },
+  {
+    title: "Internal HR System",
+    category: "Web Apps",
+    tagline: "Employee database, attendance, leave and timesheets",
+    description:
+      "An internal HR application modeled on Zoho People's core modules — employee records, check-in/out attendance, leave management and timesheets — with role-based access for employees, managers and admins.",
+    highlights: [
+      "Core HR modules: employees, attendance, leave, timesheets",
+      "Role-based access for employee, manager and admin",
+      "Built on Next.js server actions with a Prisma data layer",
+    ],
+    integrations: ["Next.js", "Prisma", "SQLite", "Tailwind CSS"],
+    metric: "Next.js + Prisma",
+  },
+  {
+    title: "CC Statement Extractor",
+    category: "Document Automation",
+    tagline: "OCR + AI parsing of credit-card statements into Sheets",
+    description:
+      "A scheduled tool that reads credit-card statement PDFs from Google Drive, uses OCR and Gemini to parse header and transaction data, writes structured rows into separate Google Sheets tabs, and files processed statements into dated folders — including multi-cardholder statement support.",
+    highlights: [
+      "OCR and Gemini parsing of statement PDFs",
+      "Separate header and transaction outputs to Google Sheets",
+      "Multi-cardholder support with dated auto-filing",
+    ],
+    integrations: ["Python", "Google Gemini", "Cloud Vision", "Google Sheets"],
+    metric: "Python + Gemini",
+  },
+  {
+    title: "Buildertrend Data Exporter",
+    category: "Data Scraping",
+    tagline: "Bulk-export financials and files from Buildertrend",
+    description:
+      "A browser-automation tool that logs into Buildertrend — which has no public API — and extracts purchase-order and owner-invoice history plus every job's documents, photos and videos, mirroring the original folder structure and streaming results straight to Google Drive to handle large multi-hundred-job exports without local storage.",
+    highlights: [
+      "Playwright automation against a platform with no public API",
+      "Mirrors Buildertrend's folder structure into Google Drive",
+      "Streams job-by-job to handle hundreds of jobs without local disk",
+    ],
+    integrations: ["Python", "Playwright", "Google Drive", "rclone"],
+    metric: "Python tool",
+  },
 ];
 
 export const categories: Category[] = [
   "AI Agents",
+  "Business Systems",
+  "Web Apps",
   "Document Automation",
   "Data Scraping",
   "Data Pipelines",

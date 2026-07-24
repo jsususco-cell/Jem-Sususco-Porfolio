@@ -9,6 +9,8 @@ const filters: Filter[] = ["All", ...categories];
 
 const catColor: Record<Category, string> = {
   "AI Agents": "text-violet-300 border-violet-400/30 bg-violet-400/10",
+  "Business Systems": "text-fuchsia-300 border-fuchsia-400/30 bg-fuchsia-400/10",
+  "Web Apps": "text-blue-300 border-blue-400/30 bg-blue-400/10",
   "Document Automation": "text-cyan-300 border-cyan-400/30 bg-cyan-400/10",
   "Data Scraping": "text-emerald-300 border-emerald-400/30 bg-emerald-400/10",
   "Data Pipelines": "text-amber-300 border-amber-400/30 bg-amber-400/10",
@@ -30,12 +32,12 @@ export default function Projects() {
           Selected Work
         </div>
         <h2 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-          Automation Projects
+          Projects &amp; Systems
         </h2>
         <p className="mb-10 max-w-2xl text-muted">
-          A selection of production n8n workflows I&apos;ve designed and shipped —
-          from multi-agent AI systems to document pipelines and large-scale data
-          scrapers.
+          A selection of production work I&apos;ve designed and shipped — n8n
+          automation workflows, Quickbase business systems, full-stack web apps
+          and AI-powered data tools.
         </p>
 
         <div className="mb-10 flex flex-wrap gap-2">
@@ -69,7 +71,7 @@ export default function Projects() {
                   {p.category}
                 </span>
                 <span className="font-mono text-xs text-muted">
-                  {p.nodes} nodes
+                  {p.nodes != null ? `${p.nodes} nodes` : p.metric}
                 </span>
               </div>
 

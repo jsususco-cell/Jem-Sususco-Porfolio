@@ -2,10 +2,10 @@ import Image from "next/image";
 import { projects } from "@/data/projects";
 
 export default function Hero() {
-  const totalNodes = projects.reduce((sum, p) => sum + p.nodes, 0);
+  const totalNodes = projects.reduce((sum, p) => sum + (p.nodes ?? 0), 0);
 
   const stats = [
-    { value: `${projects.length}+`, label: "Production Workflows" },
+    { value: `${projects.length}+`, label: "Production Projects" },
     { value: `${totalNodes}+`, label: "Automation Nodes" },
     { value: "3+ yrs", label: "Automation & Dev" },
   ];
