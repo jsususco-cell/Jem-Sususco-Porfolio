@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Highlight from "@/components/Highlight";
 import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
@@ -12,6 +13,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Highlight />
         <Projects />
         <About />
         <Skills />
