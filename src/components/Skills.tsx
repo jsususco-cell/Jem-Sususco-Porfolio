@@ -1,3 +1,5 @@
+import { Eyebrow } from "@/components/ui";
+
 const groups = [
   {
     title: "Workflow Automation",
@@ -16,14 +18,7 @@ const groups = [
   },
   {
     title: "AI Development Tools",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Node.js",
-      "Express",
-    ],
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express"],
   },
   {
     title: "Data & Integration",
@@ -48,35 +43,35 @@ const groups = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-3 text-sm font-mono uppercase tracking-widest text-accent2">
-          Toolbox
-        </div>
-        <h2 className="mb-10 text-4xl font-bold tracking-tight sm:text-5xl">
-          Skills &amp; Technologies
-        </h2>
+    <section id="skills" className="scroll-mt-24 pt-14">
+      <Eyebrow>Toolbox</Eyebrow>
+      <h2 className="display text-3xl font-extrabold tracking-tight sm:text-4xl">
+        Skills &amp; Technologies
+      </h2>
+      <p className="mt-2 max-w-2xl text-sm text-muted">
+        The stack I run on, from no-code automation platforms to full-stack
+        development and AI tooling.
+      </p>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {groups.map((g) => (
-            <div
-              key={g.title}
-              className="rounded-2xl border border-border bg-card p-6"
-            >
-              <h3 className="mb-4 text-lg font-semibold">{g.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {g.skills.map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-lg border border-border bg-surface px-3 py-1.5 text-sm text-gray-300"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {groups.map((g) => (
+          <div
+            key={g.title}
+            className="rounded-4xl border border-line-card bg-card p-6 shadow-card"
+          >
+            <h3 className="mb-4 text-base font-bold text-ink">{g.title}</h3>
+            <div className="flex flex-wrap gap-2">
+              {g.skills.map((s) => (
+                <span
+                  key={s}
+                  className="rounded-lg border border-line-card bg-sand px-3 py-1.5 text-sm text-ink-soft"
+                >
+                  {s}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

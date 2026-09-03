@@ -2,119 +2,109 @@
 
 import { useState } from "react";
 import { projects, categories, type Category } from "@/data/projects";
+import { Eyebrow } from "@/components/ui";
 
 type Filter = "All" | Category;
-
 const filters: Filter[] = ["All", ...categories];
 
-const catColor: Record<Category, string> = {
-  "AI Agents": "text-violet-300 border-violet-400/30 bg-violet-400/10",
-  "Business Systems": "text-fuchsia-300 border-fuchsia-400/30 bg-fuchsia-400/10",
-  "Web Apps": "text-blue-300 border-blue-400/30 bg-blue-400/10",
-  "Document Automation": "text-cyan-300 border-cyan-400/30 bg-cyan-400/10",
-  "Data Scraping": "text-emerald-300 border-emerald-400/30 bg-emerald-400/10",
-  "Data Pipelines": "text-amber-300 border-amber-400/30 bg-amber-400/10",
-  "Ops & Finance": "text-rose-300 border-rose-400/30 bg-rose-400/10",
+const catDot: Record<Category, string> = {
+  "AI Agents": "#8b5cf6",
+  "Business Systems": "#d946ef",
+  "Web Apps": "#3b82f6",
+  "Document Automation": "#06b6d4",
+  "Data Scraping": "#10b981",
+  "Data Pipelines": "#f59e0b",
+  "Ops & Finance": "#f43f5e",
 };
 
 export default function Projects() {
   const [active, setActive] = useState<Filter>("All");
-
   const shown =
-    active === "All"
-      ? projects
-      : projects.filter((p) => p.category === active);
+    active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="projects" className="px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-3 text-sm font-mono uppercase tracking-widest text-accent2">
-          Selected Work
-        </div>
-        <h2 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-          Projects &amp; Systems
-        </h2>
-        <p className="mb-10 max-w-2xl text-muted">
-          A selection of production work I&apos;ve designed and shipped — n8n
-          automation workflows, Quickbase business systems, full-stack web apps
-          and AI-powered data tools.
-        </p>
+    <section id="projects" className="scroll-mt-24 pt-14">
+      <Eyebrow>Selected Work</Eyebrow>
+      <h2 className="display text-3xl font-extrabold tracking-tight sm:text-4xl">
+        Projects &amp; Systems
+      </h2>
+      <p className="mt-2 max-w-2xl text-sm text-muted">
+        A selection of production work I&apos;ve designed and shipped — n8n
+        automation workflows, Quickbase business systems, web apps and
+        AI-powered data tools.
+      </p>
 
-        <div className="mb-10 flex flex-wrap gap-2">
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActive(f)}
-              className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-                active === f
-                  ? "border-accent bg-accent text-white"
-                  : "border-border bg-card text-muted hover:border-accent/50 hover:text-white"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
+      <div className="mt-6 flex flex-wrap gap-2">
+        {filters.map((f) => (
+          <button
+            key={f}
+            onClick={() => setActive(f)}
+            className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+              active === f
+                ? "border-brand bg-brand text-white"
+                : "border-line-card bg-card text-ink-soft hover:border-brand/50"
+            }`}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {shown.map((p) => (
-            <article
-              key={p.title}
-              className={`group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 ${
-                p.featured ? "sm:col-span-2 lg:col-span-1" : ""
-              }`}
-            >
-              <div className="mb-4 flex items-center justify-between gap-2">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {shown.map((p) => (
+          <article
+            key={p.title}
+            className={`group flex flex-col rounded-4xl border border-line-card bg-card p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover ${
+              p.featured ? "sm:col-span-2 lg:col-span-1" : ""
+            }`}
+          >
+            <div className="mb-4 flex items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-line-card bg-sand px-3 py-1 text-xs font-medium text-ink-soft">
                 <span
-                  className={`rounded-full border px-3 py-1 text-xs font-medium ${catColor[p.category]}`}
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: catDot[p.category] }}
+                />
+                {p.category}
+              </span>
+              <span className="font-mono text-xs text-muted">
+                {p.nodes != null ? `${p.nodes} nodes` : p.metric}
+              </span>
+            </div>
+
+            <h3 className="text-lg font-bold leading-snug text-ink">
+              {p.title}
+              {p.featured && (
+                <span className="ml-2 align-middle text-xs font-semibold text-brand">
+                  ★ Featured
+                </span>
+              )}
+            </h3>
+            <p className="mt-1 text-sm font-semibold text-brand">{p.tagline}</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              {p.description}
+            </p>
+
+            <ul className="mt-4 space-y-1.5">
+              {p.highlights.map((h) => (
+                <li key={h} className="flex gap-2 text-sm text-ink-soft">
+                  <span className="mt-1 text-brand">▸</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-auto flex flex-wrap gap-2 border-t border-line-card pt-4">
+              {p.integrations.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-md bg-sand px-2 py-1 text-xs text-ink-soft"
                 >
-                  {p.category}
+                  {t}
                 </span>
-                <span className="font-mono text-xs text-muted">
-                  {p.nodes != null ? `${p.nodes} nodes` : p.metric}
-                </span>
-              </div>
-
-              <h3 className="mb-1 text-xl font-semibold leading-snug group-hover:text-white">
-                {p.title}
-                {p.featured && (
-                  <span className="ml-2 align-middle text-xs text-amber-300">
-                    ★ Featured
-                  </span>
-                )}
-              </h3>
-              <p className="mb-3 text-sm font-medium text-accent2">
-                {p.tagline}
-              </p>
-              <p className="mb-4 text-sm leading-relaxed text-muted">
-                {p.description}
-              </p>
-
-              <ul className="mb-5 space-y-1.5">
-                {p.highlights.map((h) => (
-                  <li
-                    key={h}
-                    className="flex gap-2 text-sm text-gray-300"
-                  >
-                    <span className="mt-1 text-accent2">▸</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto flex flex-wrap gap-2 border-t border-border pt-4">
-                {p.integrations.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-md bg-surface px-2 py-1 text-xs text-muted"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
+              ))}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

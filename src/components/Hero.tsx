@@ -1,97 +1,68 @@
-import Image from "next/image";
 import { projects } from "@/data/projects";
+import { ArrowUpRight, Download } from "@/components/icons";
 
 export default function Hero() {
-  const totalNodes = projects.reduce((sum, p) => sum + (p.nodes ?? 0), 0);
-
+  const totalNodes = projects.reduce((s, p) => s + (p.nodes ?? 0), 0);
   const stats = [
-    { value: `${projects.length}+`, label: "Production Projects" },
-    { value: `${totalNodes}+`, label: "Automation Nodes" },
-    { value: "3+ yrs", label: "Automation & Dev" },
+    { value: `${projects.length}+`, label: "Production builds" },
+    { value: `${totalNodes}+`, label: "Automation nodes" },
+    { value: "3+ yrs", label: "Automation & dev" },
+    { value: "GMT+8", label: "PH hours" },
   ];
 
   return (
-    <section
-      id="top"
-      className="bg-grid relative flex min-h-screen items-center overflow-hidden px-6 pt-28 pb-16"
-    >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.25fr_1fr]">
-        {/* Text column */}
-        <div className="order-2 lg:order-1">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted animate-fadeUp">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-accent2" />
-            Available for automation & AI development roles
-          </p>
+    <section id="top" className="scroll-mt-24 pt-2">
+      <div className="inline-flex items-center gap-2 rounded-full border border-line-card bg-card px-3.5 py-1.5 text-xs font-medium text-ink-soft shadow-card">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-brand" />
+        Available for automation &amp; AI development roles
+      </div>
 
-          <h1
-            className="mb-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl animate-fadeUp"
-            style={{ animationDelay: "0.05s", opacity: 0 }}
-          >
-            Hi, I&apos;m Jemuel.
-            <br />
-            I build <span className="gradient-text">AI automations</span> that
-            run the business.
-          </h1>
+      <h1 className="display mt-5 max-w-3xl text-[2.6rem] font-extrabold leading-[1.03] sm:text-6xl">
+        Automate it once.{" "}
+        <span className="gradient-text">Run it forever.</span>
+      </h1>
 
-          <p
-            className="mb-8 max-w-2xl text-lg text-muted animate-fadeUp"
-            style={{ animationDelay: "0.1s", opacity: 0 }}
-          >
-            AI-powered automation specialist and AI development engineer. I design
-            end-to-end workflow systems with n8n, build multi-agent AI tools,
-            and ship AI-driven apps to GitHub, Vercel and Fly.io.
-          </p>
+      <p className="mt-5 max-w-2xl text-base text-ink-soft sm:text-lg">
+        I&apos;m Jemuel — an AI-powered automation specialist and AI development
+        engineer. I design end-to-end workflow systems with n8n, build
+        multi-agent AI tools, and ship AI-driven apps and Quickbase platforms
+        that run the business.
+      </p>
 
-          <div
-            className="flex flex-wrap gap-4 animate-fadeUp"
-            style={{ animationDelay: "0.15s", opacity: 0 }}
-          >
-            <a
-              href="#projects"
-              className="rounded-lg bg-accent px-6 py-3 font-medium text-white transition-transform hover:scale-105"
-            >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="rounded-lg border border-border bg-card px-6 py-3 font-medium text-white transition-colors hover:border-accent"
-            >
-              Get in Touch
-            </a>
-          </div>
+      <div className="mt-7 flex flex-wrap gap-3">
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+        >
+          Get in touch
+          <ArrowUpRight width={17} height={17} />
+        </a>
+        <a
+          href="#projects"
+          className="inline-flex items-center gap-2 rounded-full border border-line-card bg-card px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-brand/50"
+        >
+          View projects
+        </a>
+        <a
+          href="/Resume_Jem_Sususco.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-line-card bg-card px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-brand/50"
+        >
+          <Download width={16} height={16} />
+          CV
+        </a>
+      </div>
 
-          <div
-            className="mt-14 grid grid-cols-3 gap-6 border-t border-border pt-8 animate-fadeUp"
-            style={{ animationDelay: "0.2s", opacity: 0 }}
-          >
-            {stats.map((s) => (
-              <div key={s.label}>
-                <div className="text-3xl font-bold gradient-text">
-                  {s.value}
-                </div>
-                <div className="mt-1 text-sm text-muted">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Photo column */}
-        <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
-          <div className="relative animate-fadeUp" style={{ opacity: 0 }}>
-            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-accent/30 to-accent2/30 blur-2xl" />
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-2xl shadow-accent/10">
-              <Image
-                src="/jem.jpg"
-                alt="Jemuel Sususco"
-                width={1558}
-                height={1729}
-                priority
-                sizes="(max-width: 1024px) 80vw, 380px"
-                className="h-auto w-[280px] object-cover sm:w-[340px] lg:w-[380px]"
-              />
+      <div className="mt-9 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line-card bg-line-card shadow-card sm:grid-cols-4">
+        {stats.map((s) => (
+          <div key={s.label} className="bg-card px-5 py-4">
+            <div className="text-2xl font-extrabold tracking-tight text-ink">
+              {s.value}
             </div>
+            <div className="mt-0.5 text-xs text-muted">{s.label}</div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );
