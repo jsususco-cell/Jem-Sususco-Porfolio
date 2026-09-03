@@ -3,7 +3,6 @@ import {
   Sparkles,
   Wrench,
   Layers,
-  Quote,
   Award,
   ArrowUpRight,
 } from "@/components/icons";
@@ -32,12 +31,6 @@ const cards = [
     Icon: Layers,
     title: "Toolbox",
     blurb: "n8n, Quickbase, Next.js, Supabase, OpenAI and the rest of the stack.",
-  },
-  {
-    href: "#testimonials",
-    Icon: Quote,
-    title: "Testimonials",
-    blurb: "What the people I build for say about the work.",
   },
   {
     href: "#about",

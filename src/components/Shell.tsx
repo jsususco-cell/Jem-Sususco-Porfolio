@@ -7,7 +7,6 @@ import {
   Chat,
   Wrench,
   Layers,
-  Quote,
   User,
   Mail,
   Github,
@@ -25,14 +24,13 @@ const NAV: Item[] = [
   { id: "demo", label: "Byrdie Demo", short: "Demo", Icon: Chat },
   { id: "services", label: "Services", short: "Services", Icon: Wrench },
   { id: "skills", label: "Toolbox", short: "Tools", Icon: Layers },
-  { id: "testimonials", label: "Testimonials", short: "Words", Icon: Quote },
   { id: "about", label: "About", short: "About", Icon: User },
   { id: "contact", label: "Contact", short: "Contact", Icon: Mail },
 ];
 
 // Curated set for the mobile floating bar (center slot is the contact action).
 const MOBILE_LEFT = [NAV[0], NAV[1]];
-const MOBILE_RIGHT = [NAV[3], NAV[6]];
+const MOBILE_RIGHT = [NAV[3], NAV[5]];
 
 const SOCIALS = [
   { href: "https://github.com/jsususco-cell", label: "GitHub", Icon: Github },
