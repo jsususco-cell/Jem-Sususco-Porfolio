@@ -1,3 +1,6 @@
+import { Eyebrow } from "@/components/ui";
+import { Award, Pin } from "@/components/icons";
+
 const experience = [
   {
     role: "IT Automations Specialist",
@@ -14,7 +17,7 @@ const experience = [
     company: "Independent Projects",
     period: "2024 — Present",
     points: [
-      "Built full-stack apps with React, Next.js and Tailwind, backed by Node.js/Express REST APIs.",
+      "Built AI-driven web apps with React, Next.js and Tailwind, backed by Node.js/Express REST APIs.",
       "Deployed to Vercel (frontend), Fly.io (backend) and GitHub with CI/CD pipelines.",
       "Integrated third-party APIs, databases and OAuth/JWT authentication.",
     ],
@@ -41,64 +44,80 @@ const experience = [
 
 export default function About() {
   return (
-    <section id="about" className="border-t border-border bg-surface px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <div className="mb-3 text-sm font-mono uppercase tracking-widest text-accent2">
-              About
-            </div>
-            <h2 className="mb-6 text-4xl font-bold tracking-tight">
-              Automation that&apos;s reliable, not just clever.
-            </h2>
-            <p className="mb-4 text-muted">
+    <section id="about" className="scroll-mt-24 pt-14">
+      <Eyebrow>About</Eyebrow>
+      <h2 className="display text-3xl font-extrabold tracking-tight sm:text-4xl">
+        Who I am and how I work
+      </h2>
+
+      <div className="mt-6 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+        {/* Bio + credentials */}
+        <div className="space-y-4">
+          <div className="rounded-4xl border border-line-card bg-card p-6 shadow-card">
+            <p className="text-sm leading-relaxed text-ink-soft">
               I&apos;m an AI-powered automation specialist and AI development
               engineer with 3+ years designing end-to-end workflow systems and
-              web applications. I work fluently across no-code/low-code
-              platforms — n8n, GoHighLevel, Zapier, Make — and modern AI
-              development tools.
+              web applications. I work fluently across no-code/low-code platforms
+              — n8n, GoHighLevel, Zapier, Make — and modern AI development tools.
             </p>
-            <p className="mb-4 text-muted">
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft">
               My background in IT support and systems administration means I
               build for the real world: workflows with logging, error handling
               and intelligent fallbacks, documented with SOPs so teams can
               actually adopt them.
             </p>
-            <p className="text-muted">
-              Based in Antipolo City, Rizal, Philippines. B.S. in Information
-              Technology (Leadership Awardee), ICCT Colleges Foundation.
-            </p>
           </div>
 
-          <div>
-            <div className="mb-6 text-sm font-mono uppercase tracking-widest text-accent2">
-              Experience
+          <div className="rounded-4xl border border-line-card bg-card p-6 shadow-card">
+            <div className="flex items-center gap-2">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-soft text-brand">
+                <Award width={20} height={20} />
+              </span>
+              <h3 className="text-base font-bold text-ink">Credentials</h3>
             </div>
-            <ol className="relative space-y-8 border-l border-border pl-6">
-              {experience.map((e) => (
-                <li key={e.role} className="relative">
-                  <span className="absolute -left-[31px] top-1 h-3.5 w-3.5 rounded-full border-2 border-accent bg-bg" />
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="text-lg font-semibold">{e.role}</h3>
-                    <span className="font-mono text-xs text-muted">
-                      {e.period}
-                    </span>
-                  </div>
-                  <div className="mb-2 text-sm font-medium text-accent2">
-                    {e.company}
-                  </div>
-                  <ul className="space-y-1.5">
-                    {e.points.map((p) => (
-                      <li key={p} className="flex gap-2 text-sm text-muted">
-                        <span className="mt-1 text-accent2">▸</span>
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ol>
+            <div className="mt-4 space-y-1">
+              <div className="text-sm font-semibold text-ink">
+                B.S. in Information Technology
+              </div>
+              <div className="text-sm text-muted">
+                ICCT Colleges Foundation, Inc. · December 2017
+              </div>
+              <div className="text-sm text-brand">
+                Graduated with Leadership Awardee distinction
+              </div>
+            </div>
+            <div className="mt-4 flex items-center gap-2 border-t border-line-card pt-4 text-sm text-muted">
+              <Pin width={16} height={16} className="text-brand" />
+              Antipolo City, Rizal, Philippines
+            </div>
           </div>
+        </div>
+
+        {/* Experience timeline */}
+        <div className="rounded-4xl border border-line-card bg-card p-6 shadow-card">
+          <h3 className="mb-5 text-base font-bold text-ink">Experience</h3>
+          <ol className="relative space-y-7 border-l border-line-card pl-6">
+            {experience.map((e) => (
+              <li key={e.role} className="relative">
+                <span className="absolute -left-[29px] top-1 h-3.5 w-3.5 rounded-full border-2 border-brand bg-card" />
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h4 className="font-semibold text-ink">{e.role}</h4>
+                  <span className="font-mono text-xs text-muted">{e.period}</span>
+                </div>
+                <div className="mb-2 text-sm font-medium text-brand">
+                  {e.company}
+                </div>
+                <ul className="space-y-1.5">
+                  {e.points.map((p) => (
+                    <li key={p} className="flex gap-2 text-sm text-ink-soft">
+                      <span className="mt-1 text-brand">▸</span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

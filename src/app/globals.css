@@ -2,44 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --cream: #f4f4ed;
+  --sand: #eceadf;
+  --card: #ffffff;
+  --ink: #0b1e3f;
+  --ink-soft: #3b4b6b;
+  --muted: #6b7280;
+  --line: #e4e2d6;
+  --line-card: #ecebe3;
+  --brand: #ff7a1a;
+  --brand-soft: #fff1e6;
+  --squiggle: rgba(11, 30, 63, 0.10);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --cream: #0f1420;
+  --sand: #161c2b;
+  --card: #161c2b;
+  --ink: #f3f1e9;
+  --ink-soft: #b9c1d1;
+  --muted: #8b93a4;
+  --line: #232a3a;
+  --line-card: #2a3244;
+  --brand: #ff8a33;
+  --brand-soft: #2a2015;
+  --squiggle: rgba(243, 241, 233, 0.08);
+  color-scheme: dark;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
 }
 
 body {
-  background-color: #0a0a0f;
-  color: #e5e7eb;
+  background-color: var(--cream);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* subtle grid + glow background */
-.bg-grid {
-  background-image:
-    radial-gradient(circle at 20% 0%, rgba(99, 102, 241, 0.12), transparent 40%),
-    radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.08), transparent 35%),
-    linear-gradient(to right, rgba(38, 38, 51, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(38, 38, 51, 0.4) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+/* Tight display headings like the reference */
+.display {
+  letter-spacing: -0.03em;
+  line-height: 1.02;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #818cf8 0%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--brand);
+}
+
+/* Marquee mask fade on both edges */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: var(--cream);
 }
 ::-webkit-scrollbar-thumb {
-  background: #262633;
+  background: var(--line);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6366f1;
+  background: var(--brand);
 }

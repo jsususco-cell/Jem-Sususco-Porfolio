@@ -1,3 +1,6 @@
+import { Eyebrow, Chip } from "@/components/ui";
+import { ArrowUpRight } from "@/components/icons";
+
 const points = [
   "Reads and verifies receipts and invoices, then confirms before pushing structured records to Quickbase",
   "One assistant across Gmail, Drive, Calendar, Zoho People, QuickBooks and Quickbase",
@@ -8,62 +11,51 @@ const stack = ["n8n", "Google Chat", "OpenAI", "Quickbase", "Zoho People", "Quic
 
 export default function Highlight() {
   return (
-    <section
-      id="demo"
-      className="border-t border-border bg-surface px-6 py-24"
-    >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        {/* Text column */}
-        <div className="order-2 lg:order-1">
-          <div className="mb-3 text-sm font-mono uppercase tracking-widest text-accent2">
-            Featured Demo
+    <section id="demo" className="scroll-mt-24 pt-14">
+      <div className="overflow-hidden rounded-4xl border border-line-card bg-card shadow-card">
+        <div className="grid items-center gap-8 p-6 sm:p-9 lg:grid-cols-[1.1fr_0.9fr]">
+          {/* Text */}
+          <div>
+            <Eyebrow>Featured Demo</Eyebrow>
+            <h2 className="display text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Byrdie 2.0 — <span className="gradient-text">AI Chatbot</span>
+            </h2>
+            <p className="mt-3 max-w-xl text-sm text-ink-soft">
+              Byrdie is the company&apos;s Google Chat AI assistant. Staff ask it
+              questions in plain language and it answers from across the business
+              — then takes action, from reading a receipt to filing a Quickbase
+              record. This 60-second demo shows it in action.
+            </p>
+
+            <ul className="mt-5 space-y-2.5">
+              {points.map((p) => (
+                <li key={p} className="flex gap-2 text-sm text-ink-soft">
+                  <span className="mt-1 text-brand">▸</span>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {stack.map((t) => (
+                <Chip key={t}>{t}</Chip>
+              ))}
+            </div>
+
+            <a
+              href="#projects"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
+            >
+              See the project
+              <ArrowUpRight width={16} height={16} />
+            </a>
           </div>
-          <h2 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-            Byrdie 2.0 — <span className="gradient-text">AI Chatbot</span>
-          </h2>
-          <p className="mb-6 max-w-xl text-muted">
-            Byrdie is the company&apos;s Google Chat AI assistant. Staff ask it
-            questions in plain language and it answers from across the business —
-            then takes action, from reading a receipt to filing a Quickbase
-            record. This 60-second demo shows it in action.
-          </p>
 
-          <ul className="mb-8 space-y-2.5">
-            {points.map((p) => (
-              <li key={p} className="flex gap-2 text-sm text-gray-300">
-                <span className="mt-1 text-accent2">▸</span>
-                <span>{p}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mb-8 flex flex-wrap gap-2">
-            {stack.map((t) => (
-              <span
-                key={t}
-                className="rounded-md border border-border bg-card px-2.5 py-1 text-xs text-muted"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-
-          <a
-            href="#projects"
-            className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-5 py-2.5 text-sm font-medium text-accent2 transition-colors hover:bg-accent/20"
-          >
-            See the project
-            <span aria-hidden>↓</span>
-          </a>
-        </div>
-
-        {/* Video column */}
-        <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
-          <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-accent/30 to-accent2/30 blur-2xl" />
-            <div className="relative w-[260px] rounded-[2rem] border border-border bg-card p-2 shadow-2xl shadow-accent/10 sm:w-[300px]">
+          {/* Video */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="w-[240px] rounded-[1.8rem] border border-line-card bg-sand p-2 shadow-card sm:w-[280px]">
               <video
-                className="aspect-[9/16] w-full rounded-[1.5rem] bg-black"
+                className="aspect-[9/16] w-full rounded-[1.3rem] bg-black"
                 controls
                 playsInline
                 preload="metadata"
