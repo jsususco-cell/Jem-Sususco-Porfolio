@@ -15,6 +15,7 @@ import {
   Verified,
   Download,
 } from "@/components/icons";
+import VisitCounter from "@/components/VisitCounter";
 
 type Item = { id: string; label: string; short: string; Icon: typeof Home };
 
@@ -213,6 +214,8 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           <BottomLink key={id} id={id} short={short} Icon={Icon} active={active} />
         ))}
       </nav>
+
+      <VisitCounter />
     </div>
   );
 }
