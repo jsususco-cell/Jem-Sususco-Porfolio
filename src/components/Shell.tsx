@@ -10,6 +10,7 @@ import {
   User,
   Mail,
   Github,
+  Linkedin,
   Sun,
   Moon,
   Verified,
@@ -35,6 +36,11 @@ const MOBILE_RIGHT = [NAV[3], NAV[5]];
 
 const SOCIALS = [
   { href: "https://github.com/jsususco-cell", label: "GitHub", Icon: Github },
+  {
+    href: "https://www.linkedin.com/in/jemsususco",
+    label: "LinkedIn",
+    Icon: Linkedin,
+  },
   { href: "mailto:jemz291994@gmail.com", label: "Email", Icon: Mail },
 ];
 
