@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Hub from "@/components/Hub";
 import Highlight from "@/components/Highlight";
+import Impact from "@/components/Impact";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Skills from "@/components/Skills";
@@ -19,6 +20,7 @@ export default function Home() {
         <Marquee />
         <Hub />
         <Highlight />
+        <Impact />
         <Projects />
         <Services />
         <Skills />

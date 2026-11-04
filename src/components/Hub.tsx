@@ -1,6 +1,7 @@
 import {
   Folder,
   Sparkles,
+  Zap,
   Wrench,
   Layers,
   Award,
@@ -12,7 +13,13 @@ const cards = [
     href: "#projects",
     Icon: Folder,
     title: "Projects",
-    blurb: "27 shipped builds across AI agents, automation, Quickbase and web.",
+    blurb: "35+ shipped builds across AI agents, automation, Quickbase and web.",
+  },
+  {
+    href: "#impact",
+    Icon: Zap,
+    title: "Impact",
+    blurb: "Real automation shipped and run in production, day to day.",
   },
   {
     href: "#demo",

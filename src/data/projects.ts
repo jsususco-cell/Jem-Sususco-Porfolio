@@ -405,6 +405,120 @@ export const projects: Project[] = [
     integrations: ["Python", "Playwright", "Google Drive", "rclone"],
     metric: "Python tool",
   },
+  {
+    title: "Custom ERP over Quickbase",
+    category: "Business Systems",
+    tagline: "A full ERP layered on Quickbase with QuickBooks as the ledger",
+    description:
+      "A custom enterprise resource planning app built in Next.js over a Quickbase backend, with QuickBooks Online holding the general ledger. It pulls procurement, reconciliation, org charts, an internal wiki and HR into one system — a suite of read dashboards plus a write layer back into Quickbase.",
+    highlights: [
+      "Unifies procurement, reconciliation, org chart, wiki and HR",
+      "Next.js front end over a Quickbase data model",
+      "QuickBooks Online kept as the system of record for the GL",
+    ],
+    integrations: ["Next.js", "Quickbase", "QuickBooks Online", "Vercel"],
+    metric: "Next.js + Quickbase",
+    featured: true,
+  },
+  {
+    title: "HRIS Platform",
+    category: "Business Systems",
+    tagline: "Company HRIS migrated off Zoho People into Quickbase",
+    description:
+      "A full HR information system — employees, attendance, leave, payroll and payslips — migrated from Zoho People into a custom Quickbase app. Scheduled n8n syncs keep attendance current, an audited ledger reconciles every leave balance, and summaries and payslips are generated and emailed automatically. Runs across 180+ employees and tens of thousands of attendance records.",
+    highlights: [
+      "Employees, attendance, leave, payroll and payslips in one app",
+      "Scheduled attendance sync with an audited leave-balance ledger",
+      "Auto-generated, emailed reports and per-employee payslips",
+    ],
+    integrations: ["Quickbase", "n8n", "Zoho People", "Google Workspace"],
+    metric: "Quickbase + n8n",
+    featured: true,
+  },
+  {
+    title: "E-Signature Platform",
+    category: "Web Apps",
+    tagline: "In-house document signing that replaced a paid SaaS",
+    description:
+      "A self-hosted e-signature platform with reusable templates, public intake forms and ordered multi-signer flows — built as a cost-saving replacement for a commercial product. Live on Vercel over a Quickbase backend, with 40+ templates and 19 public forms in production.",
+    highlights: [
+      "40+ reusable templates and 19 public intake forms",
+      "Ordered multi-signer signing flows",
+      "Replaced a paid third-party e-signature tool",
+    ],
+    integrations: ["Next.js", "Quickbase", "Vercel"],
+    metric: "Next.js + Quickbase",
+  },
+  {
+    title: "Inspection Packages App",
+    category: "Business Systems",
+    tagline: "Milestone inspection packages with e-sign and AI reading",
+    description:
+      "Generates pre- and post-inspection document packages across construction milestones, routes them for signature through the in-house e-sign platform, and uses AI to read uploaded forms. Covers all 12 project milestones with bilingual regulatory forms and a subcontractor declaration.",
+    highlights: [
+      "Pre/post packages across all 12 construction milestones",
+      "E-sign routing from checklist through declaration",
+      "AI reading of uploaded inspection forms",
+    ],
+    integrations: ["Next.js", "Quickbase", "Vercel"],
+    metric: "Next.js + AI",
+  },
+  {
+    title: "Permitting Helper",
+    category: "Document Automation",
+    tagline: "Builds a 7-document permit package per case",
+    description:
+      "Assembles a seven-document permitting package per case, captures a login-free e-signature from the approver through a tokenized link, and files the completed documents to Google Drive via an n8n workflow. Live on Vercel behind a password gate.",
+    highlights: [
+      "Seven-document package generated per case",
+      "Login-free approver e-signature via tokenized link",
+      "Completed documents auto-filed to Drive through n8n",
+    ],
+    integrations: ["Next.js", "Quickbase", "n8n", "Google Drive"],
+    metric: "Next.js + n8n",
+  },
+  {
+    title: "Receipt Capture → OCR",
+    category: "Document Automation",
+    tagline: "Field receipts to structured records with AI vision",
+    description:
+      "A mobile capture flow that sends field receipts through an n8n pipeline using Claude vision to extract line items, writes structured records into Quickbase, and feeds the existing QuickBooks coding pipeline — turning phone photos into booked expenses with no manual entry.",
+    highlights: [
+      "Mobile field capture of receipts",
+      "Claude-vision OCR inside an n8n pipeline",
+      "Structured write to Quickbase and the QuickBooks pipeline",
+    ],
+    integrations: ["n8n", "Claude", "Quickbase", "QuickBooks Online"],
+    metric: "n8n + Claude vision",
+  },
+  {
+    title: "Weekly Field Activity Report",
+    category: "Data Pipelines",
+    tagline: "Automated weekly field-activity email across regions",
+    description:
+      "An n8n automation that compiles field-visit activity into a weekly report and emails it every Friday across US and Puerto Rico teams, with a watchdog workflow and a duplicate-send guard so the report always goes out exactly once.",
+    highlights: [
+      "Scheduled Friday report across two regions",
+      "Watchdog workflow and de-duplication guard for reliability",
+      "Compiled automatically from field-visit records",
+    ],
+    integrations: ["n8n", "Gmail", "Google Workspace"],
+    metric: "n8n automation",
+  },
+  {
+    title: "Automation Logging Hub",
+    category: "Data Pipelines",
+    tagline: "One place every workflow and app reports into",
+    description:
+      "A central Quickbase logging application — activity, errors, runs, audit and systems — that every workflow and app writes to, giving a single pane to monitor the whole automation estate and debug failures quickly.",
+    highlights: [
+      "Unified log store for all systems",
+      "Activity, errors, run history and audit trails",
+      "Powers monitoring and fast debugging across workflows",
+    ],
+    integrations: ["Quickbase", "n8n"],
+    metric: "Quickbase",
+  },
 ];
 
 export const categories: Category[] = [

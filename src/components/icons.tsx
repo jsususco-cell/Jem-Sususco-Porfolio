@@ -127,6 +127,12 @@ export const Moon = (p: IconProps) => (
   </svg>
 );
 
+export const Zap = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
+  </svg>
+);
+
 export const Eye = (p: IconProps) => (
   <svg {...base} {...p}>
     <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />

@@ -5,6 +5,7 @@ import {
   Home,
   Folder,
   Chat,
+  Sparkles,
   Wrench,
   Layers,
   User,
@@ -24,6 +25,7 @@ const NAV: Item[] = [
   { id: "top", label: "Home", short: "Home", Icon: Home },
   { id: "projects", label: "Projects", short: "Work", Icon: Folder },
   { id: "demo", label: "Byrdie Demo", short: "Demo", Icon: Chat },
+  { id: "impact", label: "Impact", short: "Impact", Icon: Sparkles },
   { id: "services", label: "Services", short: "Services", Icon: Wrench },
   { id: "skills", label: "Toolbox", short: "Tools", Icon: Layers },
   { id: "about", label: "About", short: "About", Icon: User },
@@ -31,8 +33,9 @@ const NAV: Item[] = [
 ];
 
 // Curated set for the mobile floating bar (center slot is the contact action).
-const MOBILE_LEFT = [NAV[0], NAV[1]];
-const MOBILE_RIGHT = [NAV[3], NAV[5]];
+const byId = (id: string) => NAV.find((n) => n.id === id)!;
+const MOBILE_LEFT = [byId("top"), byId("projects")];
+const MOBILE_RIGHT = [byId("services"), byId("about")];
 
 const SOCIALS = [
   { href: "https://github.com/jsususco-cell", label: "GitHub", Icon: Github },
