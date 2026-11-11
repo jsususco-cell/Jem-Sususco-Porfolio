@@ -1,6 +1,26 @@
 import { Eyebrow } from "@/components/ui";
 import { Wrench, Layers, Chat, Sparkles, Folder, Award } from "@/components/icons";
 
+// Quantified, defensible metrics: funnel lift and hours-saved are from Jemuel's
+// own published resume; employee count and build count are factual.
+const stats = [
+  { value: "~30", unit: "hrs/wk", label: "Manual work eliminated" },
+  { value: "90", unit: "%", label: "Funnel conversion lift" },
+  { value: "180", unit: "+", label: "Employees on systems I run" },
+  { value: "5", unit: "+ yrs", label: "In IT & automation" },
+];
+
+const autopilot = [
+  "Weekly field-activity reports",
+  "Receipt & expense capture → QuickBooks",
+  "Payroll, leave & payslips",
+  "Birthday & holiday reminders",
+  "Bond-expiry alerts",
+  "Permit & inspection packages",
+  "Credit-card statement reconciliation",
+  "Org-chart upkeep",
+];
+
 const items = [
   {
     Icon: Wrench,
@@ -37,16 +57,50 @@ const items = [
 export default function Impact() {
   return (
     <section id="impact" className="scroll-mt-24 pt-14">
-      <Eyebrow>Real-World Impact</Eyebrow>
+      <Eyebrow>Business Impact</Eyebrow>
       <h2 className="display text-3xl font-extrabold tracking-tight sm:text-4xl">
-        Automation in production
+        Automation that pays for itself
       </h2>
       <p className="mt-2 max-w-2xl text-sm text-muted">
-        Not demos — systems I&apos;ve shipped and run day to day. Here&apos;s the
-        kind of real-world automation work behind the projects below.
+        Not demos — systems I&apos;ve shipped and run day to day, and the time
+        and work they take off the table.
       </p>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Quantified impact band */}
+      <div className="mt-6 grid grid-cols-2 gap-px overflow-hidden rounded-4xl border border-line-card bg-line-card shadow-card lg:grid-cols-4">
+        {stats.map((s) => (
+          <div key={s.label} className="bg-card px-6 py-6">
+            <div className="flex items-baseline gap-1">
+              <span className="text-3xl font-extrabold tracking-tight text-brand sm:text-4xl">
+                {s.value}
+              </span>
+              <span className="text-lg font-bold text-brand">{s.unit}</span>
+            </div>
+            <div className="mt-1 text-sm text-muted">{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Tasks now on autopilot */}
+      <div className="mt-4 rounded-4xl border border-line-card bg-card p-6 shadow-card">
+        <h3 className="text-sm font-bold text-ink">
+          Recurring tasks now on autopilot
+        </h3>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {autopilot.map((t) => (
+            <span
+              key={t}
+              className="inline-flex items-center gap-2 rounded-full border border-line-card bg-sand px-3 py-1.5 text-sm text-ink-soft"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Narrative cards */}
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map(({ Icon, title, body }) => (
           <div
             key={title}

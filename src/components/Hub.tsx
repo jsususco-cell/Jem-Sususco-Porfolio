@@ -19,7 +19,7 @@ const cards = [
     href: "#impact",
     Icon: Zap,
     title: "Impact",
-    blurb: "Real automation shipped and run in production, day to day.",
+    blurb: "~30 hrs/week saved, 90% funnel lift — real automation ROI.",
   },
   {
     href: "#demo",
